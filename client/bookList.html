@@ -1,0 +1,28 @@
+<template name="bookList">
+    <!--Asking for currentUser logged in from a Blaze method-->
+    {{#if currentUser}}
+    <h3> Hera are your books: </h3>
+    <ul>
+        <!--We iterate each book from the list-->
+        {{#each books}}
+            <li>
+                <!--Then we print it out each book with its title and author-->
+                <i>{{title}}</i> by {{author}}
+            </li>
+        {{/each}}
+    </ul>
+
+    <!--Setting a form to allow the adition of new books-->
+    <form class="add-book">
+        Title: <br/>
+        <input type="text" name="title"/>
+        <br/>
+        Author: <br/>
+        <input type="text" name="author"/>
+        <input type="submit" value="Add Book"/>
+    </form>
+    <!--If not logged in, It will ask for logging-->
+    {{else}}
+        <h3>Please log in to see your books</h3>
+    {{/if}}
+</template>
